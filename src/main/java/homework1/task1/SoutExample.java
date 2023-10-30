@@ -1,11 +1,13 @@
-package task1;
+package homework1.task1;
 
-public class soutExample {
+public class SoutExample {
     public static void main(String[] args) {
-        if (args.length > 0) {
-            System.out.println("Hello, " + args[0] + "!");
+        if (args.length >= 2) {
+            String name = args[0];
+            String age = args[1];
+            System.out.println("Hello, " + name + "! You are " + age + " years old.");
         } else {
-            System.out.println("Hello, user!");
+            System.out.println("Please provide both your name and age.");
         }
     }
 }

@@ -17,7 +17,6 @@ public class University {
         faculties.add(faculty);
     }
 
-    // Getters and Setters
     public String getName() {
         return name;
     }

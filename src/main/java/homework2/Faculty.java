@@ -16,7 +16,6 @@ public class Faculty {
         specializations.add(specialization);
     }
 
-    // Getters and Setters
     public String getName() {
         return name;
     }

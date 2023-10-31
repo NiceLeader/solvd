@@ -16,7 +16,6 @@ public class Specialization {
         subjects.add(subject);
     }
 
-    // Getters and Setters
     public String getName() {
         return name;
     }

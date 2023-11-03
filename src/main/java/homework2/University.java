@@ -1,10 +1,13 @@
+
 package homework2;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class University {
-    private String name;
-    private String address;
+    protected String name;
+    protected String address;
     private List<Faculty> faculties;
 
     public University(String name, String address) {
@@ -34,6 +37,30 @@ public class University {
     }
 
     public List<Faculty> getFaculties() {
-        return faculties;
+        return new ArrayList<>(faculties); // Return a copy to protect the encapsulation
+    }
+
+    @Override
+    public String toString() {
+        return "University{" +
+                "name='" + name + '\'' +
+        ", address='" + address + '\'' +
+        ", faculties=" + faculties +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        University that = (University) o;
+        return Objects.equals(name, that.name) &&
+                Objects.equals(address, that.address) &&
+                Objects.equals(faculties, that.faculties);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, address, faculties);
     }
 }

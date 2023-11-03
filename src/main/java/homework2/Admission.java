@@ -8,6 +8,15 @@ public class Admission {
     private double applicationFee;
 
     public Admission(String requirements, Date deadline, double applicationFee) {
+        if (requirements == null || requirements.trim().isEmpty()) {
+            throw new IllegalArgumentException("Requirements cannot be empty");
+        }
+        if (deadline.before(new Date())) {
+            throw new IllegalArgumentException("Deadline must be in the future");
+        }
+        if (applicationFee <= 0) {
+            throw new IllegalArgumentException("Application fee must be positive");
+        }
         this.requirements = requirements;
         this.deadline = deadline;
         this.applicationFee = applicationFee;
@@ -36,5 +45,21 @@ public class Admission {
     public void setApplicationFee(double applicationFee) {
         this.applicationFee = applicationFee;
     }
-}
 
+    // Method to calculate the application fee based on early or international application
+    public double calculateApplicationFee(boolean isEarlyApplication, boolean isInternationalStudent) {
+        double fee = this.applicationFee;
+        if (isEarlyApplication) {
+            fee *= 0.9; // 10% discount for early applications
+        }
+        if (isInternationalStudent) {
+            fee += 50; // Additional fee for international students
+        }
+        return fee;
+    }
+
+    // Method to check if the admission is still open
+    public boolean isAdmissionOpen() {
+        return new Date().before(this.deadline);
+    }
+}

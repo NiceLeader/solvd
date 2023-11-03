@@ -9,8 +9,8 @@ public class Exam {
 
     public Exam(Subject subject, Date date, int requiredScore) {
         this.subject = subject;
-        this.date = date;
-        this.requiredScore = requiredScore;
+        setDate(date); // Use the setter for validation
+        setRequiredScore(requiredScore); // Use the setter for validation
     }
 
     public Subject getSubject() {
@@ -26,6 +26,9 @@ public class Exam {
     }
 
     public void setDate(Date date) {
+        if (date.before(new Date())) {
+            throw new IllegalArgumentException("Exam date must be in the future");
+        }
         this.date = date;
     }
 
@@ -34,6 +37,14 @@ public class Exam {
     }
 
     public void setRequiredScore(int requiredScore) {
+        if (requiredScore < 0 || requiredScore > 100) {
+            throw new IllegalArgumentException("Required score must be between 0 and 100");
+        }
         this.requiredScore = requiredScore;
+    }
+
+    // Method to determine if a student's score meets the required score
+    public boolean isScoreSufficient(int studentScore) {
+        return studentScore >= requiredScore;
     }
 }

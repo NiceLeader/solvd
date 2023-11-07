@@ -57,8 +57,8 @@ public class UniversitySystemMain {
         System.out.println("Cost breakdown:\n" + costBreakdown);
 
         Professor professorSergey = new Professor("Sergey Zagriychuk");
-        professorSergey.teachSubject(new Subject("Physics", 1));
-        professorSergey.teachSubject(new Subject("Chemistry", 2));
+        professorSergey.teachSubject(subjectMath);
+
         professorSergey.printSubjectsTaught();
 
 

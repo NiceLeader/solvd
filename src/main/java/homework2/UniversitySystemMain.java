@@ -6,13 +6,13 @@ import homework2.university.UniversityManager;
 import homework2.university.UniversityUtils;
 
 import java.math.BigDecimal;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 public class UniversitySystemMain {
 
     static {
+        System.out.println("Initializing University System...");
         UniversityConfig.initialize();
+        System.out.println("University System Initialized.");
     }
 
     public static void main(String[] args) {
@@ -20,7 +20,6 @@ public class UniversitySystemMain {
         university.setName("North Carolina State University");
         university.setAddress("123 Innovation Drive, Techville");
         Faculty engineeringFaculty = new Faculty("Engineering");
-        university.printAllFaculties();
 
 
         Student student = new Student("Maciej Lewandowski");

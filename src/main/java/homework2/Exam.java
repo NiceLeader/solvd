@@ -13,6 +13,18 @@ public class Exam {
         setRequiredScore(requiredScore); // Use the setter for validation
     }
 
+    public Exam() {
+
+    }
+
+    public void takeExam(int studentScore) {
+        if (isScoreSufficient(studentScore)) {
+            System.out.println("Student has passed the exam with a score of " + studentScore);
+        } else {
+            System.out.println("Student has not passed the exam.");
+        }
+    }
+
     public Subject getSubject() {
         return subject;
     }

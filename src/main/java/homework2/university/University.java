@@ -59,7 +59,9 @@ public class University {
         System.out.println("Faculties at " + name + ":");
         for (Faculty faculty : faculties) {
             System.out.println(faculty.getName());
+
         }
+
     }
     @Override
     public boolean equals(Object o) {

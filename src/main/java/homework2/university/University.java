@@ -1,5 +1,7 @@
 
-package homework2;
+package homework2.university;
+
+import homework2.Faculty;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,8 +46,8 @@ public class University {
     public String toString() {
         return "University{" +
                 "name='" + name + '\'' +
-        ", address='" + address + '\'' +
-        ", faculties=" + faculties +
+                ", address='" + address + '\'' +
+                ", faculties=" + faculties +
                 '}';
     }
 

@@ -15,6 +15,12 @@ public class AcademicAdvisor extends Person implements Counselable {
         this.advisedStudents = new ArrayList<>();
     }
 
+    public void printAdvisedStudents() {
+        for (Student student : advisedStudents) {
+            System.out.println(student);
+        }
+    }
+
     @Override
     public void provideCounseling(Student student) {
         this.advisedStudents.add(student);

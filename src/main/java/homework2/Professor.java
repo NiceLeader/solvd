@@ -14,6 +14,12 @@ public class Professor extends Person implements Teachable {
         this.taughtSubjects = new ArrayList<>();
     }
 
+    public void printSubjectsTaught() {
+        for (Subject subject : taughtSubjects) {
+            System.out.println(subject);
+        }
+    }
+
     @Override
     public void teachSubject(Subject subject) {
         this.taughtSubjects.add(subject);

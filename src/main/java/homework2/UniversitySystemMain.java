@@ -24,6 +24,7 @@ public class UniversitySystemMain {
         student.addGrade(90.0);
         student.addGrade(85.5);
 
+
         student.processPayment(new BigDecimal("1500.00"));
 
         Cost studentCost = new Cost(10000.0, 1500.0);
@@ -31,7 +32,7 @@ public class UniversitySystemMain {
         double totalCost = studentCost.calculateTotalCost();
         System.out.println("Total cost for the semester: $" + totalCost);
 
-        double scholarshipAmount = 2500.0; // Example scholarship amount
+        double scholarshipAmount = 2500.0;
         double adjustedTuition = studentCost.applyScholarship(scholarshipAmount);
         System.out.println("Adjusted tuition after scholarship: $" + adjustedTuition);
 
@@ -42,14 +43,17 @@ public class UniversitySystemMain {
         String costBreakdown = studentCost.getCostBreakdown();
         System.out.println("Cost breakdown:\n" + costBreakdown);
 
-        Professor professorSmith = new Professor("Sergey Zagriychuk");
-        professorSmith.teachSubject(new Subject("Physics", 1));
-        professorSmith.teachSubject(new Subject("Chemistry", 2));
+        Professor professorSergey = new Professor("Sergey Zagriychuk");
+        professorSergey.teachSubject(new Subject("Physics", 1));
+        professorSergey.teachSubject(new Subject("Chemistry", 2));
+        professorSergey.printSubjectsTaught();
+
 
         AcademicAdvisor advisorJohnson = new AcademicAdvisor("Johnson");
         advisorJohnson.provideCounseling(student);
+        advisorJohnson.printAdvisedStudents();
 
-        System.out.println("Professor Smith teaches: " + professorSmith.getTaughtSubjects());
+        System.out.println("Professor Smith teaches: " + professorSergey.getTaughtSubjects());
 
         System.out.println("Advisor Johnson advises: " + advisorJohnson.getAdvisedStudents());
 

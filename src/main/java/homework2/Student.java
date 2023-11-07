@@ -26,6 +26,15 @@ public class Student extends Person implements Enrollable, Evaluatable, Financea
         enrolledSubjects.add(subject);
     }
 
+    public void calculateAndPrintGPA() {
+        double sum = 0;
+        for (Double grade : grades) {
+            sum += grade;
+        }
+        double gpa = sum / grades.size();
+        System.out.println("GPA: " + gpa);
+    }
+
     public List<Subject> getEnrolledSubjects() {
         return new ArrayList<>(enrolledSubjects);
     }

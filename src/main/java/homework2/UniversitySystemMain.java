@@ -1,54 +1,57 @@
 package homework2;
 
-import java.util.Date;
+import homework2.university.UniversityConfig;
+import homework2.university.UniversityManager;
+import homework2.university.UniversityUtils;
+
+import java.math.BigDecimal;
 
 public class UniversitySystemMain {
+
+    static {
+        UniversityConfig.initialize();
+    }
+
     public static void main(String[] args) {
-        University university = new University("University of Cambridge", "The Old Schools, Trinity Ln, Cambridge CB2 1TN, United Kingdom");
-
-        Faculty compSci = new Faculty("Computer Science");
-        Specialization webDev = new Specialization("Web Development");
-        Specialization se = new Specialization("Software Engineering");
-        compSci.addSpecialization(webDev);
-        compSci.addSpecialization(se);
-        university.addFaculty(compSci);
-
-        Subject webBasics = new Subject("Web Development Basics", 3);
-        Subject advancedProgramming = new Subject("Advanced Programming", 4);
-        webDev.addSubject(webBasics);
-        se.addSubject(advancedProgramming);
-
-        Exam webDevExam = new Exam(webBasics, new Date(), 70);
-        Exam programmingExam = new Exam(advancedProgramming, new Date(), 75);
-
+        // Create a new Student
         Student student = new Student("Maciej Lewandowski");
-        student.enrollInSubject(webBasics);
-        student.enrollInSubject(advancedProgramming);
 
-        Enrollment enrollmentWebDev = new Enrollment(student, webBasics);
-        enrollmentWebDev.setGrade(88);
-        Enrollment enrollmentProgramming = new Enrollment(student, advancedProgramming);
-        enrollmentProgramming.setGrade(90);
+        // Enroll the student in subjects
+        student.enrollInSubject(new Subject("Mathematics", 1));
+        student.enrollInSubject(new Subject("History", 2));
 
-        Cost cost = new Cost(5000.00, 1000.00);
-        FinancialAid scholarship = new FinancialAid("Scholarship", 2000.00);
+        // Process the enrollment using polymorphism
+        UniversityManager universityManager = new UniversityManager();
+        universityManager.processEnrollment(student);
 
-        Admission admission = new Admission("High School Diploma", new Date(), 50.00);
+        // Add grades to the student using the Evaluatable interface
+        student.addGrade(90.0);
+        student.addGrade(85.5);
 
-        System.out.println("University: " + university.getName() + "\nAddress: " + university.getAddress());
-        System.out.println("Faculties:");
-        for (Faculty faculty : university.getFaculties()) {
-            System.out.println("  - " + faculty.getName());
-        }
+        // Handle payments
+        student.processPayment(new BigDecimal("1500.00"));
 
-        System.out.println("Student: " + student.getName());
-        System.out.println("Enrolled Subjects:");
-        for (Subject subject : student.getEnrolledSubjects()) {
-            System.out.println("  - " + subject.getName() + ", Credits: " + subject.getCredits());
-        }
+        Professor professorSmith = new Professor("Sergey Zagriychuk");
+        professorSmith.teachSubject(new Subject("Physics", 1));
+        professorSmith.teachSubject(new Subject("Chemistry", 2));
 
-        System.out.println("Financials: Total Cost - " + cost.calculateTotalCost() + ", Financial Aid - " + scholarship.getAmount());
-        System.out.println("Admission Requirement: " + admission.getRequirements() + ", Application Fee: " + admission.getApplicationFee());
+        // Create an AcademicAdvisor and have them counsel students
+        AcademicAdvisor advisorJohnson = new AcademicAdvisor("Johnson");
+        advisorJohnson.provideCounseling(student); // Assuming 'student' is already created as shown in previous snippets
+
+        // Display taught subjects by Professor Smith
+        System.out.println("Professor Smith teaches: " + professorSmith.getTaughtSubjects());
+
+        // Display advised students by Advisor Johnson
+        System.out.println("Advisor Johnson advises: " + advisorJohnson.getAdvisedStudents());
+
+        // Use the static method to calculate GPA
+        UniversityUtils.calculateGPA(student);
+
+        // Output the total number of enrolled students using the static variable
+        System.out.println("Total enrolled students: " + UniversityConfig.totalEnrolledStudents);
+
+        // Demonstrate final variable usage
+        System.out.println("University Name: " + UniversityConfig.UNIVERSITY_NAME);
     }
 }
-

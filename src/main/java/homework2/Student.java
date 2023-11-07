@@ -1,11 +1,17 @@
 
 package homework2;
 
+import homework2.interfaces.Enrollable;
+import homework2.interfaces.Evaluatable;
+import homework2.interfaces.Financeable;
+
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Student extends Person {
+public class Student extends Person implements Enrollable, Evaluatable, Financeable {
+
     protected List<Subject> enrolledSubjects;
 
     public Student(String name) {
@@ -30,7 +36,7 @@ public class Student extends Person {
     public String toString() {
         return "Student{" +
                 "name='" + name + '\'' +
-        ", enrolledSubjects=" + enrolledSubjects +
+                ", enrolledSubjects=" + enrolledSubjects +
                 '}';
     }
 
@@ -46,5 +52,25 @@ public class Student extends Person {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), enrolledSubjects);
+    }
+
+    @Override
+    public void processPayment(BigDecimal amount) {
+
+    }
+
+    @Override
+    public BigDecimal getBalance() {
+        return null;
+    }
+
+    @Override
+    public void addGrade(double grade) {
+
+    }
+
+    @Override
+    public List<Double> getGrades() {
+        return null;
     }
 }

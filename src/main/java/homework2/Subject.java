@@ -1,8 +1,11 @@
 package homework2;
 
+import homework2.university.UniversityConfig;
+
 public class Subject {
     private String name;
     private int credits;
+
 
     public Subject(String name, int credits) {
         this.name = name;
@@ -23,5 +26,13 @@ public class Subject {
 
     public void setCredits(int credits) {
         this.credits = credits;
+    }
+
+    public int getCreditPoints() {
+        return credits * 10;
+    }
+
+    public int getEnrolledStudentCount() {
+        return UniversityConfig.totalEnrolledStudents;
     }
 }

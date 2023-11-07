@@ -1,6 +1,6 @@
 package homework2.university;
 
-import homework2.Student;
+import homework2.person.Student;
 
 public class UniversityUtils {
     private UniversityUtils() {

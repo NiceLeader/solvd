@@ -1,6 +1,6 @@
-package homework2;
+package homework2.person;
 
-import homework2.Student;
+import homework2.Subject;
 import homework2.interfaces.Counselable;
 
 import java.math.BigDecimal;

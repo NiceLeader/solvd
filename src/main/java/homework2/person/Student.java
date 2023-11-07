@@ -1,6 +1,8 @@
 
-package homework2;
+package homework2.person;
 
+import homework2.Faculty;
+import homework2.Subject;
 import homework2.interfaces.Enrollable;
 import homework2.interfaces.Evaluatable;
 import homework2.interfaces.Financeable;

@@ -1,5 +1,7 @@
 package homework2;
 
+import homework2.person.Student;
+
 public class Enrollment {
     private Student student;
     private Subject subject;

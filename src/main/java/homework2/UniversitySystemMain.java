@@ -1,5 +1,8 @@
 package homework2;
 
+import homework2.person.AcademicAdvisor;
+import homework2.person.Professor;
+import homework2.person.Student;
 import homework2.university.University;
 import homework2.university.UniversityConfig;
 import homework2.university.UniversityManager;
@@ -7,7 +10,7 @@ import homework2.university.UniversityUtils;
 
 import java.math.BigDecimal;
 
-import static homework2.Student.studentsToString;
+import static homework2.person.Student.studentsToString;
 import static homework2.Subject.subjectsToString;
 
 public class UniversitySystemMain {

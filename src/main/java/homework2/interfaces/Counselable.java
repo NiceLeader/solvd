@@ -1,6 +1,6 @@
 package homework2.interfaces;
 
-import homework2.Student;
+import homework2.person.Student;
 
 import java.util.List;
 

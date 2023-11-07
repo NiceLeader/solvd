@@ -1,5 +1,6 @@
 package homework2;
 
+import homework2.university.University;
 import homework2.university.UniversityConfig;
 import homework2.university.UniversityManager;
 import homework2.university.UniversityUtils;
@@ -13,7 +14,16 @@ public class UniversitySystemMain {
     }
 
     public static void main(String[] args) {
+        University university = new University();
+        university.setName("North Carolina State University");
+        university.setAddress("123 Innovation Drive, Techville");
+        university.addFaculty(new Faculty("Business"));
+        university.addFaculty(new Faculty("Arts"));
+        university.printAllFaculties();
+
+
         Student student = new Student("Maciej Lewandowski");
+        student.setFaculty(new Faculty("Engineering"));
 
         student.enrollInSubject(new Subject("Mathematics", 1));
         student.enrollInSubject(new Subject("History", 2));

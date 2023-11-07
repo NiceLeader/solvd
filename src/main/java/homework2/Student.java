@@ -15,6 +15,7 @@ public class Student extends Person implements Enrollable, Evaluatable, Financea
 
     protected List<Subject> enrolledSubjects;
     private List<Double> grades;
+    private Faculty faculty;
 
     public Student(String name) {
         super(name);
@@ -34,6 +35,16 @@ public class Student extends Person implements Enrollable, Evaluatable, Financea
         double gpa = sum / grades.size();
         System.out.println("GPA: " + gpa);
     }
+
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }
+
+    public Faculty getFaculty() {
+        return this.faculty;
+    }
+    
+
 
     public List<Subject> getEnrolledSubjects() {
         return new ArrayList<>(enrolledSubjects);

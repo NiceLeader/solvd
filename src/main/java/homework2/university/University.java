@@ -18,6 +18,10 @@ public class University {
         this.faculties = new ArrayList<>();
     }
 
+    public University() {
+
+    }
+
     public void addFaculty(Faculty faculty) {
         faculties.add(faculty);
     }
@@ -51,6 +55,12 @@ public class University {
                 '}';
     }
 
+    public void printAllFaculties() {
+        System.out.println("Faculties at " + name + ":");
+        for (Faculty faculty : faculties) {
+            System.out.println(faculty.getName());
+        }
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Student extends Person implements Enrollable, Evaluatable, Financeable {
 
@@ -43,7 +44,11 @@ public class Student extends Person implements Enrollable, Evaluatable, Financea
     public Faculty getFaculty() {
         return this.faculty;
     }
-    
+    public static String studentsToString(List<Student> students) {
+        return students.stream()
+                .map(Student::toString)
+                .collect(Collectors.joining(", "));
+    }
 
 
     public List<Subject> getEnrolledSubjects() {

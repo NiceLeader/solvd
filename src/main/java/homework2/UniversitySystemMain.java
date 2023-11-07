@@ -7,6 +7,9 @@ import homework2.university.UniversityUtils;
 
 import java.math.BigDecimal;
 
+import static homework2.Student.studentsToString;
+import static homework2.Subject.subjectsToString;
+
 public class UniversitySystemMain {
 
     static {
@@ -66,9 +69,11 @@ public class UniversitySystemMain {
         advisorJohnson.provideCounseling(student);
         advisorJohnson.printAdvisedStudents();
 
+
         System.out.println(student);
-        System.out.println("Professor Sergey teaches: " + professorSergey.getTaughtSubjects());
-        System.out.println("Advisor Johnson advises: " + advisorJohnson.getAdvisedStudents());
+        System.out.println("Professor Sergey teaches: " + subjectsToString(professorSergey.getTaughtSubjects()));
+        System.out.println("Advisor Johnson advises: " + studentsToString(advisorJohnson.getAdvisedStudents()));
+
 
         UniversityUtils.calculateGPA(student);
 

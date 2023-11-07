@@ -2,6 +2,9 @@ package homework2;
 
 import homework2.university.UniversityConfig;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Subject {
     private String name;
     private int credits;
@@ -11,7 +14,15 @@ public class Subject {
         this.name = name;
         this.credits = credits;
     }
-
+    public static String subjectsToString(List<Subject> subjects) {
+        return subjects.stream()
+                .map(Subject::toString)
+                .collect(Collectors.joining(", "));
+    }
+    @Override
+    public String toString() {
+        return name + " (" + credits + " credits)";
+    }
     public String getName() {
         return name;
     }

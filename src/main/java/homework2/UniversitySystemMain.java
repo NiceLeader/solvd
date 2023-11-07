@@ -61,6 +61,7 @@ public class UniversitySystemMain {
 
         Professor professorSergey = new Professor("Sergey Zagriychuk");
         professorSergey.teachSubject(subjectMath);
+        professorSergey.getRole();
 
         professorSergey.printSubjectsTaught();
 

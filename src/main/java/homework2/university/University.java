@@ -22,6 +22,7 @@ public class University {
 
     }
 
+
     public void addFaculty(Faculty faculty) {
         faculties.add(faculty);
     }

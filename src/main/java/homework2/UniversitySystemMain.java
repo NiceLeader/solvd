@@ -22,6 +22,7 @@ public class UniversitySystemMain {
         Faculty engineeringFaculty = new Faculty("Engineering");
 
 
+
         Student student = new Student("Maciej Lewandowski");
         student.setFaculty(engineeringFaculty);
         Subject subjectMath = new Subject("Mathematics", 1);
@@ -66,7 +67,7 @@ public class UniversitySystemMain {
         advisorJohnson.printAdvisedStudents();
 
         System.out.println(student);
-        System.out.println("Professor Smith teaches: " + professorSergey.getTaughtSubjects());
+        System.out.println("Professor Sergey teaches: " + professorSergey.getTaughtSubjects());
         System.out.println("Advisor Johnson advises: " + advisorJohnson.getAdvisedStudents());
 
         UniversityUtils.calculateGPA(student);

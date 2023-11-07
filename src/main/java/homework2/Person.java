@@ -1,7 +1,11 @@
 
 package homework2;
 
-public abstract class Person {
+import homework2.interfaces.Enrollable;
+import homework2.interfaces.Evaluatable;
+import homework2.interfaces.Financeable;
+
+public abstract class Person implements Enrollable, Evaluatable, Financeable {
     protected String name;
 
     public Person(String name) {
@@ -17,4 +21,6 @@ public abstract class Person {
     }
 
     public abstract String getRole();
+
+
 }

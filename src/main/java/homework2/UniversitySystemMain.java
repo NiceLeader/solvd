@@ -6,6 +6,8 @@ import homework2.university.UniversityManager;
 import homework2.university.UniversityUtils;
 
 import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class UniversitySystemMain {
 
@@ -17,16 +19,15 @@ public class UniversitySystemMain {
         University university = new University();
         university.setName("North Carolina State University");
         university.setAddress("123 Innovation Drive, Techville");
-        university.addFaculty(new Faculty("Business"));
-        university.addFaculty(new Faculty("Arts"));
+        Faculty engineeringFaculty = new Faculty("Engineering");
         university.printAllFaculties();
 
 
         Student student = new Student("Maciej Lewandowski");
-        student.setFaculty(new Faculty("Engineering"));
+        student.setFaculty(engineeringFaculty);
+        Subject subjectMath = new Subject("Mathematics", 1);
 
-        student.enrollInSubject(new Subject("Mathematics", 1));
-        student.enrollInSubject(new Subject("History", 2));
+        student.enrollInSubject(subjectMath);
 
         UniversityManager universityManager = new UniversityManager();
         universityManager.processEnrollment(student);
@@ -34,6 +35,7 @@ public class UniversitySystemMain {
         student.addGrade(90.0);
         student.addGrade(85.5);
         student.calculateAndPrintGPA();
+
 
 
         student.processPayment(new BigDecimal("1500.00"));

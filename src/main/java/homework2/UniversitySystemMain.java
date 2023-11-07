@@ -26,6 +26,22 @@ public class UniversitySystemMain {
 
         student.processPayment(new BigDecimal("1500.00"));
 
+        Cost studentCost = new Cost(10000.0, 1500.0);
+
+        double totalCost = studentCost.calculateTotalCost();
+        System.out.println("Total cost for the semester: $" + totalCost);
+
+        double scholarshipAmount = 2500.0; // Example scholarship amount
+        double adjustedTuition = studentCost.applyScholarship(scholarshipAmount);
+        System.out.println("Adjusted tuition after scholarship: $" + adjustedTuition);
+
+        double discountPercentage = 10.0;
+        double discountedTuition = studentCost.applyDiscount(discountPercentage);
+        System.out.println("Discounted tuition: $" + discountedTuition);
+
+        String costBreakdown = studentCost.getCostBreakdown();
+        System.out.println("Cost breakdown:\n" + costBreakdown);
+
         Professor professorSmith = new Professor("Sergey Zagriychuk");
         professorSmith.teachSubject(new Subject("Physics", 1));
         professorSmith.teachSubject(new Subject("Chemistry", 2));

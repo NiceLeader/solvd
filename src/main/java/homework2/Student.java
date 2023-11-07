@@ -7,16 +7,19 @@ import homework2.interfaces.Financeable;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
 public class Student extends Person implements Enrollable, Evaluatable, Financeable {
 
     protected List<Subject> enrolledSubjects;
+    private List<Double> grades;
 
     public Student(String name) {
         super(name);
         this.enrolledSubjects = new ArrayList<>();
+        this.grades = new ArrayList<>();
     }
 
     public void enrollInSubject(Subject subject) {
@@ -66,11 +69,12 @@ public class Student extends Person implements Enrollable, Evaluatable, Financea
 
     @Override
     public void addGrade(double grade) {
-
+        grades.add(grade);
     }
 
     @Override
     public List<Double> getGrades() {
-        return null;
+        return Collections.unmodifiableList(grades);
     }
+
 }

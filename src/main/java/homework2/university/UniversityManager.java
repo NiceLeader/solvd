@@ -9,17 +9,15 @@ public class UniversityManager {
     public void processEnrollment(Enrollable enrollee) {
 
         if (!canEnrollMoreSubjects(enrollee)) {
-            System.out.println("Student nie może zapisać się na więcej przedmiotów.");
+            System.out.println("Student cannot enroll in more subjects");
             return;
         }
 
         for (Subject subject : enrollee.getEnrolledSubjects()) {
             if (isSubjectAvailable(subject)) {
-                // Logika zapisu studenta na przedmiot
-                System.out.println("Student zapisany na przedmiot: " + subject.getName());
+                System.out.println("Student enrolled in subject: " + subject.getName());
             } else {
-                // Jeśli przedmiot nie jest dostępny
-                System.out.println("Przedmiot nie jest dostępny: " + subject.getName());
+                System.out.println("Subject is not available: " + subject.getName());
             }
         }
 

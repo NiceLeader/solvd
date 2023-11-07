@@ -46,7 +46,6 @@ public class Admission {
         this.applicationFee = applicationFee;
     }
 
-    // Method to calculate the application fee based on early or international application
     public double calculateApplicationFee(boolean isEarlyApplication, boolean isInternationalStudent) {
         double fee = this.applicationFee;
         if (isEarlyApplication) {
@@ -58,7 +57,6 @@ public class Admission {
         return fee;
     }
 
-    // Method to check if the admission is still open
     public boolean isAdmissionOpen() {
         return new Date().before(this.deadline);
     }

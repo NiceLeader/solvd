@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AcademicAdvisor extends Person implements Counselable {
-    private List<Student> advisedStudents;
+    private final List<Student> advisedStudents;
 
     public AcademicAdvisor(String name) {
         super(name);
@@ -22,9 +22,16 @@ public class AcademicAdvisor extends Person implements Counselable {
     }
 
     @Override
+    public String toString() {
+        return "AcademicAdvisor{" +
+                "name='" + name + '\'' +
+                ", advisedStudents=" + advisedStudents +
+                '}';
+    }
+
+    @Override
     public void provideCounseling(Student student) {
         this.advisedStudents.add(student);
-        // Logic to provide counseling to the student can be added here
     }
 
     @Override

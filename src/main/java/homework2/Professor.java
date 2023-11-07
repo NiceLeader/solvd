@@ -20,6 +20,13 @@ public class Professor extends Person implements Teachable {
         }
     }
 
+    public String toString() {
+        return "Professor{" +
+                "name='" + name + '\'' +
+                ", taughtSubjects=" + taughtSubjects +
+                '}';
+    }
+
     @Override
     public void teachSubject(Subject subject) {
         this.taughtSubjects.add(subject);

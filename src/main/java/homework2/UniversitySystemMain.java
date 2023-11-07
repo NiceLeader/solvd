@@ -23,6 +23,7 @@ public class UniversitySystemMain {
 
         student.addGrade(90.0);
         student.addGrade(85.5);
+        student.calculateAndPrintGPA();
 
 
         student.processPayment(new BigDecimal("1500.00"));
@@ -53,8 +54,8 @@ public class UniversitySystemMain {
         advisorJohnson.provideCounseling(student);
         advisorJohnson.printAdvisedStudents();
 
+        System.out.println(student);
         System.out.println("Professor Smith teaches: " + professorSergey.getTaughtSubjects());
-
         System.out.println("Advisor Johnson advises: " + advisorJohnson.getAdvisedStudents());
 
         UniversityUtils.calculateGPA(student);

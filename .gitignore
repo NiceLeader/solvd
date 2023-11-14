@@ -1,1 +1,5 @@
-meta/
+/shelf/
+/workspace.xml
+/.idea/
+/logs/
+/target/

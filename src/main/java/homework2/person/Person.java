@@ -12,6 +12,10 @@ public abstract class Person implements Enrollable, Evaluatable, Financeable {
         this.name = name;
     }
 
+    public Person() {
+
+    }
+
     public String getName() {
         return name;
     }

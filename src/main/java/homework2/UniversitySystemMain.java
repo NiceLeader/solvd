@@ -1,5 +1,6 @@
 package homework2;
 
+import homework2.exception.EnrollmentException;
 import homework2.person.AcademicAdvisor;
 import homework2.person.Professor;
 import homework2.person.Student;
@@ -34,7 +35,7 @@ public class UniversitySystemMain {
         LOGGER.info("University System Initialized.");
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws EnrollmentException {
         University university = new University();
         university.setName("North Carolina State University");
         university.setAddress("123 Innovation Drive, Techville");
@@ -72,15 +73,17 @@ public class UniversitySystemMain {
         String costBreakdown = studentCost.getCostBreakdown();
         LOGGER.info("Cost breakdown:\n" + costBreakdown);
 
-        Professor professorSergey = new Professor("Sergey Zagriychuk");
+        Professor professorSergey = new Professor();
         professorSergey.teachSubject(subjectMath);
         professorSergey.getRole();
+        professorSergey.setName("Sergey Zagriychuk");
 
         professorSergey.printSubjectsTaught();
 
-        AcademicAdvisor advisorJohnson = new AcademicAdvisor("Johnson");
+        AcademicAdvisor advisorJohnson = new AcademicAdvisor();
         advisorJohnson.provideCounseling(student);
         advisorJohnson.printAdvisedStudents();
+        advisorJohnson.setName("Johnson");
 
         LOGGER.info(student.toString());
         LOGGER.info("Professor Sergey teaches: " + subjectsToString(professorSergey.getTaughtSubjects()));

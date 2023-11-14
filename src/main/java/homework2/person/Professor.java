@@ -2,7 +2,6 @@ package homework2.person;
 
 import homework2.Subject;
 import homework2.interfaces.Teachable;
-import homework2.person.Person;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -11,8 +10,7 @@ import java.util.List;
 public class Professor extends Person implements Teachable {
     private final List<Subject> taughtSubjects;
 
-    public Professor(String name) {
-        super(name);
+    public Professor() {
         this.taughtSubjects = new ArrayList<>();
     }
 

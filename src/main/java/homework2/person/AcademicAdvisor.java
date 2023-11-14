@@ -10,8 +10,7 @@ import java.util.List;
 public class AcademicAdvisor extends Person implements Counselable {
     private final List<Student> advisedStudents;
 
-    public AcademicAdvisor(String name) {
-        super(name);
+    public AcademicAdvisor() {
         this.advisedStudents = new ArrayList<>();
     }
 

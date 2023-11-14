@@ -1,5 +1,6 @@
 package homework2;
 
+import homework2.exception.DataValidationException;
 import homework2.university.UniversityConfig;
 
 import java.util.List;
@@ -27,9 +28,13 @@ public class Subject {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name) throws DataValidationException {
+        if (name == null || name.isEmpty()) {
+            throw new DataValidationException();
+        }
         this.name = name;
     }
+
 
     public int getCredits() {
         return credits;

@@ -5,14 +5,17 @@ import homework2.interfaces.Teachable;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Professor extends Person implements Teachable {
-    private final List<Subject> taughtSubjects;
+    private LinkedList<Subject> taughtSubjects;
+
 
     public Professor() {
-        this.taughtSubjects = new ArrayList<>();
+        this.taughtSubjects = new LinkedList<>();
     }
+
 
     public void printSubjectsTaught() {
         for (Subject subject : taughtSubjects) {
@@ -33,9 +36,10 @@ public class Professor extends Person implements Teachable {
     }
 
     @Override
-    public List<Subject> getTaughtSubjects() {
-        return new ArrayList<>(this.taughtSubjects);
+    public LinkedList<Subject> getTaughtSubjects() {
+        return this.taughtSubjects;
     }
+
 
     @Override
     public String getRole() {

@@ -1,6 +1,8 @@
 package homework2;
 
 import homework2.exception.EnrollmentException;
+import homework2.exception.InvalidAmountException;
+import homework2.exception.InvalidDiscountException;
 import homework2.person.AcademicAdvisor;
 import homework2.person.Professor;
 import homework2.person.Student;
@@ -56,17 +58,32 @@ public class UniversitySystemMain {
 
         student.processPayment(new BigDecimal("1500.00"));
 
-        Cost studentCost = new Cost(10000.0, 1500.0);
+        Cost studentCost = null;
+        try {
+            studentCost = new Cost(10000.0, 1500.0);
+        } catch (InvalidAmountException e) {
+            throw new RuntimeException(e);
+        }
 
         double totalCost = studentCost.calculateTotalCost();
         LOGGER.info("Total cost for the semester: $" + totalCost);
 
         double scholarshipAmount = 2500.0;
-        double adjustedTuition = studentCost.applyScholarship(scholarshipAmount);
+        double adjustedTuition = 0;
+        try {
+            adjustedTuition = studentCost.applyScholarship(scholarshipAmount);
+        } catch (InvalidAmountException e) {
+            throw new RuntimeException(e);
+        }
         LOGGER.info("Adjusted tuition after scholarship: $" + adjustedTuition);
 
         double discountPercentage = 10.0;
-        double discountedTuition = studentCost.applyDiscount(discountPercentage);
+        double discountedTuition = 0;
+        try {
+            discountedTuition = studentCost.applyDiscount(discountPercentage);
+        } catch (InvalidDiscountException e) {
+            throw new RuntimeException(e);
+        }
         LOGGER.info("Discounted tuition: $" + discountedTuition);
 
 

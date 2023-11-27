@@ -12,6 +12,7 @@ import homework2.university.UniversityManager;
 import homework2.university.UniversityUtils;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
@@ -105,6 +106,10 @@ public class UniversitySystemMain {
         LOGGER.info(student.toString());
         LOGGER.info("Professor Sergey teaches: " + subjectsToString(professorSergey.getTaughtSubjects()));
         LOGGER.info("Advisor Johnson advises: " + studentsToString(advisorJohnson.getAdvisedStudents()));
+
+        LOGGER.info("Professor Sergey teaches: " + subjectsToString(new ArrayList<>(professorSergey.getTaughtSubjects())));
+        LOGGER.info("Advisor Johnson advises: " + studentsToString(new ArrayList<>(advisorJohnson.getAdvisedStudents())));
+
 
         UniversityUtils.calculateGPA(student);
 
